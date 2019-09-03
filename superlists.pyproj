@@ -47,7 +47,7 @@
     <Compile Include="superlists\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lists\templates\lists\index.html" />
+    <Content Include="lists\templates\lists\home.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
