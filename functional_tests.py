@@ -35,7 +35,7 @@ class NewVisitorTest(unittest.TestCase):
 
         table=self.browser.find_element_by_id('id_list_table')
         rows=table.find_elements_by_tag_name('tr')
-        self.assertTrue(any(row.text=='1:购买孔雀羽毛' for row in rows))
+        self.assertTrue(any(row.text=='1:购买孔雀羽毛' for row in rows),"新的待办事项没有出现在表格中")
 
         # 页面中又显示了一个文本框，可以输入其他的待办事项
         # 她输入了“Use peacock feathers to make a fly”（使用孔雀羽毛做假蝇）
