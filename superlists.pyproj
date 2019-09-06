@@ -30,7 +30,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="functional_tests.py">
+    <Compile Include="functional_tests\tests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="functional_tests\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="lists\admin.py" />
@@ -55,6 +58,7 @@
     <Folder Include="lists\migrations\" />
     <Folder Include="lists\templates\" />
     <Folder Include="lists\templates\lists\" />
+    <Folder Include="functional_tests\" />
     <Folder Include="superlists\" />
   </ItemGroup>
   <ItemGroup>
