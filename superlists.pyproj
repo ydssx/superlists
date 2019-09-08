@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="lists\templates\lists\home.html" />
+    <Content Include="lists\templates\lists\list.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
