@@ -41,6 +41,9 @@
     <Compile Include="lists\migrations\__init__.py" />
     <Compile Include="lists\models.py" />
     <Compile Include="lists\tests.py" />
+    <Compile Include="lists\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="lists\views.py" />
     <Compile Include="lists\__init__.py" />
     <Compile Include="manage.py" />
