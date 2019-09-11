@@ -18,13 +18,15 @@ Including another URLconf
 
 # Uncomment next two lines to enable admin:
 from django.contrib import admin
-from django.urls import path
+from django.urls import path ,re_path
 from lists import views
 
 urlpatterns = [
     # Uncomment the next line to enable the admin:
     path('admin/', admin.site.urls),
     path('',views.home_page,name='home'),
-    path('lists/the-only-list-in-the-world/',views.view_list,name='view_list'),
     path('lists/new', views.new_list, name='new_list'),
+    path(r'lists/<int:list_id>/',views.view_list,name='view_list'),
+    path(r'lists/<int:list_id>/add_item',views.add_item, name='add_item'),
+
 ]

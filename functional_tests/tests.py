@@ -58,8 +58,8 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
 
         # 页面再次更新，她的清单中显示了这两个待办事项
-        self.wait_for_row_in_list_table('1:购买孔雀羽毛')
         self.wait_for_row_in_list_table('2:使用孔雀羽毛做假蝇')
+        self.wait_for_row_in_list_table('1:购买孔雀羽毛')
 
         # 伊迪丝想知道这个网站是否会记住她的清单
     def test_multiple_users_can_start_lists_at_different_urls(self):
@@ -96,7 +96,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         #弗朗西斯获得了他的唯一URL
         francis_list_url=self.browser.current_url
-        self.assertRegex(francis_list_url, '/list/.+')
+        self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(francis_list_url, edith_list_url)
 
         #这个界面还是没有伊迪丝的清单
@@ -104,4 +104,3 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotIn('购买孔雀羽毛',page_text)
         self.assertIn('购买牛奶', page_text)
 
-        self.fail('Finish the test!')
