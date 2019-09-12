@@ -52,6 +52,7 @@ class ItemModelTest(TestCase):
 class ListViewTest(TestCase):
     """清单视图测试类"""
     def test_displays_only__items_for_that_list(self):
+        """测试只显示属于某个清单的所有事项"""
         correct_list=List.objects.create()
         Item.objects.create(text='itemey 1',list=correct_list)
         Item.objects.create(text='itemey 2',list=correct_list)
@@ -78,7 +79,7 @@ class ListViewTest(TestCase):
         self.assertEqual(response.context['list'],correct_list)
 
 class NewListTest(TestCase):
-
+    """新建清单测试类"""
     def test_can_save_a_POST_request(self):
         response=self.client.post('/lists/new',data={'item_text':'A new list item'})
         self.assertEqual(Item.objects.count(), 1)
