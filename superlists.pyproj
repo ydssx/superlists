@@ -53,6 +53,31 @@
     <Compile Include="superlists\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lists\static\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="lists\static\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="lists\static\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="lists\static\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="lists\static\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="lists\static\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="lists\static\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="lists\static\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="lists\static\bootstrap\css\bootstrap.css" />
+    <Content Include="lists\static\bootstrap\css\bootstrap.css.map" />
+    <Content Include="lists\static\bootstrap\css\bootstrap.min.css" />
+    <Content Include="lists\static\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.js" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.js.map" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.min.js" />
+    <Content Include="lists\static\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="lists\static\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="lists\static\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="lists\static\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="lists\static\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="lists\templates\lists\base.html" />
     <Content Include="lists\templates\lists\home.html" />
     <Content Include="lists\templates\lists\list.html" />
     <Content Include="requirements.txt" />
@@ -60,6 +85,11 @@
   <ItemGroup>
     <Folder Include="lists\" />
     <Folder Include="lists\migrations\" />
+    <Folder Include="lists\static\" />
+    <Folder Include="lists\static\bootstrap\" />
+    <Folder Include="lists\static\bootstrap\css\" />
+    <Folder Include="lists\static\bootstrap\js\" />
+    <Folder Include="lists\static\bootstrap\fonts\" />
     <Folder Include="lists\templates\" />
     <Folder Include="lists\templates\lists\" />
     <Folder Include="functional_tests\" />
