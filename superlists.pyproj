@@ -30,9 +30,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="functional_tests\tests.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="functional_tests\base.py" />
+    <Compile Include="functional_tests\test_layout_and_styling.py" />
+    <Compile Include="functional_tests\test_list_item_validation.py" />
+    <Compile Include="functional_tests\test_simple_list_creation.py" />
     <Compile Include="functional_tests\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -53,7 +54,7 @@
     <Compile Include="superlists\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lists\static\bese.css" />
+    <Content Include="lists\static\base.css" />
     <Content Include="lists\static\bootstrap\css\bootstrap.css" />
     <Content Include="lists\static\bootstrap\css\bootstrap.min.css" />
     <Content Include="lists\static\bootstrap\css\site.css" />
