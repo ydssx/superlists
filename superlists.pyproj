@@ -41,7 +41,9 @@
     <Compile Include="lists\apps.py" />
     <Compile Include="lists\migrations\__init__.py" />
     <Compile Include="lists\models.py" />
-    <Compile Include="lists\tests.py" />
+    <Compile Include="lists\tests\test_models.py" />
+    <Compile Include="lists\tests\test_views.py" />
+    <Compile Include="lists\tests\__init__.py" />
     <Compile Include="lists\urls.py">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +95,7 @@
     <Folder Include="lists\templates\" />
     <Folder Include="lists\templates\lists\" />
     <Folder Include="functional_tests\" />
+    <Folder Include="lists\tests\" />
     <Folder Include="superlists\" />
   </ItemGroup>
   <ItemGroup>
