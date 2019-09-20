@@ -8,6 +8,7 @@ Replace this with more appropriate tests for your application.
 from django.test import TestCase
 from django.utils.html import escape
 from lists.models import Item ,List
+from lists.forms import ItemForm
 
 # TODO: Configure your database in settings.py and sync before running tests.
 
@@ -18,6 +19,11 @@ class HomePageTest(TestCase):
         """测试客户端响应是否匹配home.html"""  
         response = self.client.get('/')
         self.assertTemplateUsed(response,'lists/home.html')
+
+    def test_home_page_uses_item_form(self):
+        """测试主页使用新的表单"""
+        response = self.client.get('/')
+        self.assertIsInstance(response.context['form'],ItemForm)
 
 
 class ListViewTest(TestCase):
