@@ -72,6 +72,14 @@ class ListViewTest(TestCase):
                                   data={'item_text':'A new item for an exsiting list'})
         self.assertRedirects(response,f'/lists/{correct_list.id}/')
 
+    def test_vlidation_errors_end_up_on_lists_page(self):
+        list_=List.objects.create()
+        response=self.client.post(f'/lists/{list_.id}/',data={'item_text':''})
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response,'lists/list.html')
+        excepted_error=escape("表单提交不能为空！")
+        self.assertContains(response,excepted_error)
+
 
 class NewListTest(TestCase):
     """新建清单测试类"""
@@ -90,7 +98,7 @@ class NewListTest(TestCase):
         response=self.client.post('/lists/new',data={'item_text':''})
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,'lists/home.html')
-        excepted_error=escape("You can't have an empty list item")
+        excepted_error=escape("表单提交不能为空！")
         self.assertContains(response,excepted_error)
 
     def test_invalid_list_items_arent_saved(self):

@@ -10,10 +10,17 @@ def home_page(request):
 def view_list(request,list_id):
     """待办事项视图"""
     list_=List.objects.get(id=list_id)
+    error=None
+
     if request.method=='POST':
-        Item.objects.create(text=request.POST['item_text'],list=list_)
-        return redirect(f'/lists/{list_.id}/')
-    return render(request,'lists/list.html',{'list':list_})
+        try:
+            item=Item.objects.create(text=request.POST['item_text'],list=list_)
+            item.full_clean()
+            item.save()
+            return redirect(list_)
+        except ValidationError:
+            error="表单提交不能为空！"
+    return render(request,'lists/list.html',{'list':list_, 'error':error})
 
 def new_list(request):
     list_=List.objects.create()
@@ -23,6 +30,6 @@ def new_list(request):
         item.save()
     except ValidationError:
         list_.delete()
-        error="You can't have an empty list item"
+        error="表单提交不能为空！"
         return render(request,'lists/home.html',{'error':error})
-    return redirect(f'/lists/{list_.id}/')
+    return redirect(list_)

@@ -39,8 +39,14 @@
     </Compile>
     <Compile Include="lists\admin.py" />
     <Compile Include="lists\apps.py" />
+    <Compile Include="lists\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="lists\migrations\__init__.py" />
     <Compile Include="lists\models.py" />
+    <Compile Include="lists\tests\test_forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="lists\tests\test_models.py" />
     <Compile Include="lists\tests\test_views.py" />
     <Compile Include="lists\tests\__init__.py" />
