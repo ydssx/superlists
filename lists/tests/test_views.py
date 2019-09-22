@@ -9,6 +9,7 @@ from django.test import TestCase
 from django.utils.html import escape
 from lists.models import Item ,List
 from lists.forms import ItemForm
+from unittest import skip
 
 # TODO: Configure your database in settings.py and sync before running tests.
 
@@ -110,9 +111,22 @@ class ListViewTest(TestCase):
         self.assertIsInstance(response.context['form'],ItemForm)
 
     def test_for_invalid_input_shows_error_on_page(self):
+        """测试无效输入在页面显示错误提示"""
         response=self.post_invalid_input()
         excepted_error=escape("表单提交不能为空！")
         self.assertContains(response,excepted_error)
+
+    @skip
+    def test_duplicate_item_validation_errors_end_up_on_lists_page(self):
+        """测试在清单页面显示输入重复事项错误"""
+        list1=List.objects.create()
+        item=Item.objects.create(list=list1,text='textey')
+        response=self.client.post(f'/lists/{list1.id}/',data={'text':'textey'})
+
+        excepted_error=escape('该事项已存在！')
+        self.assertContains(response,excepted_error)
+        self.assertTemplateUsed(response,lists/list.html)
+        self.assertEqual(Item.objects.all().count(),1)
 
 
 class NewListTest(TestCase):
