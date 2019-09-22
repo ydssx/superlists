@@ -37,3 +37,20 @@ class ItemValidationTest(FunctionalTest):
         self.get_item_input_box().send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1:购买牛奶')
         self.wait_for_row_in_list_table('2:泡茶')
+
+    def test_cannot_add_duplicate_items(self):
+        """测试不能添加重复事项"""
+        #伊迪丝访问首页，新建了一个清单
+        self.browser.get(self.live_server_url)
+        self.get_item_input_box().send_keys('购买雨靴')
+        self.get_item_input_box().send_keys(Keys.ENTER)
+        self.wait_for_row_in_list_table('1:购买雨靴')
+
+        #她一不小心输入了一个重复的待办事项
+        self.get_item_input_box().send_keys('购买雨靴')
+        self.get_item_input_box().send_keys(Keys.ENTER)
+
+        #她看到一条有帮助的错误消息
+        self.wait_for(lambda:self.assertEqual(
+            self.browser.find_element_by_css_selector('.has-error'),
+            "该事项已存在！"))
